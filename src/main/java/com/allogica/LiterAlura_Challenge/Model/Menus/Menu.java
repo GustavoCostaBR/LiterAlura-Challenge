@@ -1,5 +1,6 @@
 package com.allogica.LiterAlura_Challenge.Model.Menus;
 
+import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.BookService;
 import com.allogica.LiterAlura_Challenge.Model.Services.RequestValidationAndDataReturn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,8 @@ public class Menu {
     private Scanner keyboard = new Scanner(System.in);
 
     @Autowired
-    RequestValidationAndDataReturn requestValidationAndDataReturn = new RequestValidationAndDataReturn();
+    private BookService bookService;
+//    RequestValidationAndDataReturn requestValidationAndDataReturn = new RequestValidationAndDataReturn();
 
     public void showMenu() {
         var option = -1;
@@ -33,7 +35,7 @@ public class Menu {
 
             switch (option) {
                 case 1:
-                    requestValidationAndDataReturn.search();
+                    bookService.searchAndAddToDB();
 
                     break;
 //                case 2:

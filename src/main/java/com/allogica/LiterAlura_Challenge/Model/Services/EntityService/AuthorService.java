@@ -1,9 +1,11 @@
-package com.allogica.LiterAlura_Challenge.Model.Services;
+package com.allogica.LiterAlura_Challenge.Model.Services.EntityService;
 
 import com.allogica.LiterAlura_Challenge.Model.Entities.Author;
 import com.allogica.LiterAlura_Challenge.Model.Entities.AuthorDTO;
+import com.allogica.LiterAlura_Challenge.Model.Entities.Book;
 import com.allogica.LiterAlura_Challenge.Model.Entities.BookDTO;
 import com.allogica.LiterAlura_Challenge.Model.Repositories.AuthorRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +24,14 @@ public class AuthorService {
 //        return authors;
 //    }
 
-    public addAu
+    @Transactional
+    public Book addAuthorToBook(Book book, BookDTO bookDTO) {
+        List<Author> authors = receiveAuthorsFromBookDTO(bookDTO);
+        for (Author author : authors) {
+            book.addAuthor(author);
+        }
+        return book;
+    }
 
     public List<Author> receiveAuthorsFromBookDTO(BookDTO bookDTO) {
         List<AuthorDTO> authorsDTO = List.of(bookDTO.authors());

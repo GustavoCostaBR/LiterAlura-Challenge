@@ -2,7 +2,6 @@ package com.allogica.LiterAlura_Challenge.Model.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Entity

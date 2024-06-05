@@ -2,8 +2,8 @@ package com.allogica.LiterAlura_Challenge.Model.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Entity
 @Table(name = "books")
@@ -13,6 +13,13 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Book(String title) {
+        this.title = title;
+        this.authors = new ArrayList<>();
+        this.categories = new ArrayList<>();
+        this.languages = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;
@@ -29,19 +36,32 @@ public class Book {
 
 
 
-    @OneToMany(mappedBy = "book")
+    @ManyToMany
+    @JoinTable(
+            name = "book_category",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
     private List<BookCategory> categories;
 
-    @OneToMany(mappedBy = "book")
+    @ManyToMany
+    @JoinTable(
+            name = "book_language",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "language_id")
+    )
     private List<BookLanguage> languages;
 
     private String address;
+
+    public Book() {
+    }
 
     public List<Author> getAuthors() {
         return authors;
     }
 
-    public void addAuthors(Author author) {
+    public void addAuthor(Author author) {
         this.authors.add(author);
     }
 
@@ -57,7 +77,7 @@ public class Book {
         return categories;
     }
 
-    public void addCategories(BookCategory categorie) {
+    public void addCategory(BookCategory categorie) {
         this.categories.add(categorie);
     }
 
@@ -65,7 +85,7 @@ public class Book {
         return languages;
     }
 
-    public void addLanguages(BookLanguage language) {
+    public void addLanguage(BookLanguage language) {
         this.languages.add(language);
     }
 
