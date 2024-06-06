@@ -20,7 +20,7 @@ public class Menu {
         while (option != 0) {
             var menu = """
                     1 - Search book;
-                    2 - Register music
+                    2 - List all books;
                     3 - List musics
                     4 - Find musics by artist
                     5 - Search artist data
@@ -37,9 +37,9 @@ public class Menu {
                     bookService.searchAndAddToDB();
 
                     break;
-//                case 2:
-//                    musicService.registerMusic();
-//                    break;
+                case 2:
+                    bookService.findAllAndPrint();
+                    break;
 //                case 3:
 //                    CustomPrinter.printMusicList(musicService.listMusics());
 //                    break;

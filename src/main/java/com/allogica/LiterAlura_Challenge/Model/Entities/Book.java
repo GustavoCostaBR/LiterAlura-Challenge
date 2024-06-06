@@ -9,6 +9,15 @@ import java.util.List;
 @Table(name = "books", uniqueConstraints = @UniqueConstraint(columnNames = {"title", "address"}))
 public class Book {
 
+    @Override
+    public String toString() {
+        return "Book id: " + id +
+                ", title: " + title +
+                ", authors: " + authors +
+                ", categories: " + categories +
+                ", languages: " + languages +
+                ", address: " + address + ";";
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

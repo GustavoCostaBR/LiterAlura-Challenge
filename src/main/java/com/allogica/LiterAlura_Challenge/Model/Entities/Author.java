@@ -25,6 +25,11 @@ public class Author {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     @Column(name = "birth_year")
     private int yearOfBirth;
     @Column(name = "death_year")
