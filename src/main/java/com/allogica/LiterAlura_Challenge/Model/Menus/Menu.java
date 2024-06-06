@@ -2,6 +2,7 @@ package com.allogica.LiterAlura_Challenge.Model.Menus;
 
 import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.AuthorService;
 import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.BookService;
+import com.allogica.LiterAlura_Challenge.Model.Utilities.UserInputs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +27,7 @@ public class Menu {
                     1 - Search book;
                     2 - List all books;
                     3 - List all authors;
-                    4 - Find musics by artist
+                    4 - Find all living authors in a specific year;
                     5 - Search artist data
                     6 - Register album
                     9 - Exit
@@ -47,9 +48,10 @@ public class Menu {
                 case 3:
                     authorService.findAllAndPrint();
                     break;
-//                case 4:
-//                    CustomPrinter.printMusicList(musicService.listMusicsByArtistFragmentName());
-//                    break;
+                case 4:
+                    int year = UserInputs.getIntegerFromUser("Please inform the year: ");
+                    authorService.findLivingsInPeriodAndPrint(year);
+                    break;
 //                case 5:
 //                    System.out.println("Please inform the artist name to search: ");
 //                    ChatGPTSearch.searchArtistOnline(keyboard.nextLine());

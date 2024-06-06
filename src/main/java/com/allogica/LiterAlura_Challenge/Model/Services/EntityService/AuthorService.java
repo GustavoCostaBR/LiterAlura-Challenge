@@ -25,6 +25,12 @@ public class AuthorService {
     }
 
     @Transactional
+    public void findLivingsInPeriodAndPrint(int year) {
+        List<Author> authors = authorRepository.findByYearOfBirthLessThanAndYearOfDeathGreaterThanOrYearOfDeathIsNull(year, year);
+        CustomPrinter.printAuthors(authors);
+    }
+
+    @Transactional
     public Book addAuthorToBook(Book book, BookDTO bookDTO) {
         List<Author> authors = receiveAuthorsFromBookDTO(bookDTO);
         for (Author author : authors) {
