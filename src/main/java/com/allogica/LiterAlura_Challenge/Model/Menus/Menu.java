@@ -24,7 +24,7 @@ public class Menu {
         var option = -1;
         while (option != 0) {
             var menu = """
-                    1 - Search book;
+                    1 - Search book in the API and add to the database;
                     2 - List all books;
                     3 - List all authors;
                     4 - List all living authors in a specific year;
