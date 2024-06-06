@@ -22,7 +22,6 @@ Configuration
 
     Set up your application.properties file with the following configurations:
 
-    properties
 
     spring.application.name=LiterAlura-Challenge
     spring.datasource.url=jdbc:postgresql://${postgresDBHost}/${DBNAME1}
@@ -41,7 +40,6 @@ How to Use
     Configure your PostgreSQL database and update the application.properties file with your database credentials.
     Run the application using your IDE or build a JAR file with dependencies and run it using the command:
 
-    bash
 
     java -jar liter-alura-challenge.jar
 
@@ -92,8 +90,6 @@ Configuração
 
     Configure seu arquivo application.properties com as seguintes configurações:
 
-    properties
-
     spring.application.name=LiterAlura-Challenge
     spring.datasource.url=jdbc:postgresql://${postgresDBHost}/${DBNAME1}
     spring.datasource.username=${postgresUSER}
@@ -111,7 +107,6 @@ Como Usar
     Configure seu banco de dados PostgreSQL e atualize o arquivo application.properties com suas credenciais do banco de dados.
     Execute a aplicação usando sua IDE ou gere um arquivo JAR com dependências e execute-o usando o comando:
 
-    bash
 
     java -jar liter-alura-challenge.jar
 
