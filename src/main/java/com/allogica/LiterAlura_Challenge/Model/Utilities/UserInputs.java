@@ -8,12 +8,12 @@ public class UserInputs {
 
     static Scanner keyboard = new Scanner(System.in);
 
-    public static String getStringFromUser(String message){
+    public static String getStringFromUser(String message) {
         System.out.println(message);
         return keyboard.nextLine();
     }
 
-    public static Integer getIntegerFromUser(String message){
+    public static Integer getIntegerFromUser(String message) {
         System.out.println(message);
         do {
             try {
@@ -24,7 +24,7 @@ public class UserInputs {
         } while (true);
     }
 
-    public static int getIntegerBetweenTwoValues(String message, int min, int max){
+    public static int getIntegerBetweenTwoValues(String message, int min, int max) {
         System.out.println(message);
         do {
             try {
@@ -40,7 +40,7 @@ public class UserInputs {
         } while (true);
     }
 
-    public static long getLongInList(String message, List<Long> list){
+    public static long getLongInList(String message, List<Long> list) {
         System.out.println(message);
         do {
             try {

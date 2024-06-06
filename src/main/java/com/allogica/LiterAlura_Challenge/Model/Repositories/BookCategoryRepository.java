@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface BookCategoryRepository extends JpaRepository<BookCategory, Long> {
     Optional<BookCategory> findByName(String name);
+
     boolean existsByName(String name);
 }

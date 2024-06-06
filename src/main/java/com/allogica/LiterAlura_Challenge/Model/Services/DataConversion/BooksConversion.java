@@ -12,11 +12,11 @@ public class BooksConversion {
     @Autowired
     private DataConversion dataConversion;
 
-    public BookDTO getFullBook(String json){
+    public BookDTO getFullBook(String json) {
         return dataConversion.convertData(json, BookDTO.class);
     }
 
-    public List<BookDTO> getBooksList(String json){
+    public List<BookDTO> getBooksList(String json) {
         BookDTO[] booksArray = dataConversion.getSpecificKeyAndConvertData(json, "results", BookDTO[].class);
         return List.of(booksArray);
     }

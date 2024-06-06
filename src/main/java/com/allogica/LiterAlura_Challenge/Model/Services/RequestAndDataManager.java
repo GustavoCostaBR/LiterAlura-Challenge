@@ -5,7 +5,6 @@ import com.allogica.LiterAlura_Challenge.Model.Services.DataConversion.BooksConv
 import com.allogica.LiterAlura_Challenge.Model.Utilities.UserInputs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Scanner;

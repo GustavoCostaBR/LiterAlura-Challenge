@@ -47,7 +47,6 @@ public class BookService {
     }
 
 
-
     @Transactional
     public void findAllAndPrint() {
         CustomPrinter.printBooks(bookRepository.findAll());
@@ -103,22 +102,18 @@ public class BookService {
         if (bookDTO.formats() == null) {
             System.out.println("No address found for book: " + bookDTO.title());
             return null;
-        }
-        else {
+        } else {
             String address;
             if (bookDTO.formats().get("text/html") != null) {
                 address = bookDTO.formats().get("text/html");
                 return address;
-            }
-            else if (bookDTO.formats().get("text/html; charset=iso-8859-1") != null) {
+            } else if (bookDTO.formats().get("text/html; charset=iso-8859-1") != null) {
                 address = bookDTO.formats().get("text/html; charset=iso-8859-1");
                 return address;
-            }
-            else if (bookDTO.formats().get("text/plain") != null) {
+            } else if (bookDTO.formats().get("text/plain") != null) {
                 address = bookDTO.formats().get("text/plain");
                 return address;
-            }
-            else if (bookDTO.formats().get("text/plain; charset=us-ascii") != null) {
+            } else if (bookDTO.formats().get("text/plain; charset=us-ascii") != null) {
                 address = bookDTO.formats().get("text/plain; charset=us-ascii");
                 return address;
             }

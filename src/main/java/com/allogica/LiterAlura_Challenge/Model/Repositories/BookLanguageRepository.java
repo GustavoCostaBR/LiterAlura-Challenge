@@ -12,7 +12,6 @@ public interface BookLanguageRepository extends JpaRepository<BookLanguage, Long
 
     boolean existsByName(String name);
 
-    //    List<Long> findAllIds();
     @Query("SELECT bl.id FROM BookLanguage bl")
     List<Long> findAllIds();
 

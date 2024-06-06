@@ -1,6 +1,8 @@
 package com.allogica.LiterAlura_Challenge.Model.Services.EntityService;
 
-import com.allogica.LiterAlura_Challenge.Model.Entities.*;
+import com.allogica.LiterAlura_Challenge.Model.Entities.Book;
+import com.allogica.LiterAlura_Challenge.Model.Entities.BookCategory;
+import com.allogica.LiterAlura_Challenge.Model.Entities.BookDTO;
 import com.allogica.LiterAlura_Challenge.Model.Repositories.BookCategoryRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
