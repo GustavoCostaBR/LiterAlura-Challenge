@@ -5,6 +5,7 @@ import com.allogica.LiterAlura_Challenge.Model.Entities.BookDTO;
 import com.allogica.LiterAlura_Challenge.Model.Repositories.BookRepository;
 import com.allogica.LiterAlura_Challenge.Model.Services.RequestAndDataManager;
 import com.allogica.LiterAlura_Challenge.Model.Utilities.CustomPrinter;
+import com.allogica.LiterAlura_Challenge.Model.Utilities.UserInputs;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,22 @@ public class BookService {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Transactional
+    public void chooseLanguageAndPrint() {
+        String language = chooseLanguage();
+        List<Book> books = bookRepository.findByLanguagesName(language);
+        CustomPrinter.printBooks(books);
+    }
+
+    @Transactional
+    private String chooseLanguage() {
+        bookLanguageService.findAllAndPrint();
+        long id = UserInputs.getLongInList("Please inform the language id: ", bookLanguageService.getLanguagesIds());
+        return bookLanguageService.getLanguageNameById(id);
+    }
+
+
 
     @Transactional
     public void findAllAndPrint() {

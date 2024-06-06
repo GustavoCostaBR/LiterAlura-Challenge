@@ -19,6 +19,15 @@ public class BookLanguageService {
     BookLanguageRepository bookLanguageRepository;
 
     @Transactional
+    public void findAllAndPrint() {
+        System.out.println("Languages:");
+        List<BookLanguage> languages = bookLanguageRepository.findAll();
+        for (BookLanguage language : languages) {
+            System.out.println(language.getId() + " - " + language.getName());
+        }
+    }
+
+    @Transactional
     public Book addLanguageToBook(Book book, BookDTO bookDTO) {
         List<BookLanguage> bookLanguages = receiveLanguagesFromBookDTO(bookDTO);
         for (BookLanguage bookLanguage : bookLanguages) {
@@ -53,4 +62,11 @@ public class BookLanguageService {
         return bookLanguageRepository.save(bookLanguage);
     }
 
+    public List<Long> getLanguagesIds() {
+        return bookLanguageRepository.findAllIds();
+    }
+
+    public String getLanguageNameById(long id) {
+        return bookLanguageRepository.findById(id).orElseThrow().getName();
+    }
 }

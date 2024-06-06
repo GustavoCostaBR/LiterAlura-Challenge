@@ -1,6 +1,7 @@
 package com.allogica.LiterAlura_Challenge.Model.Menus;
 
 import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.AuthorService;
+import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.BookLanguageService;
 import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.BookService;
 import com.allogica.LiterAlura_Challenge.Model.Utilities.UserInputs;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,11 @@ public class Menu {
     @Autowired
     private AuthorService authorService;
 
+//    TODO: remove if not necessary for method 5
+    @Autowired
+    private BookLanguageService bookLanguageService;
+//    TODO: remove if not necessary for method 5
+
     public void showMenu() {
         var option = -1;
         while (option != 0) {
@@ -27,8 +33,8 @@ public class Menu {
                     1 - Search book;
                     2 - List all books;
                     3 - List all authors;
-                    4 - Find all living authors in a specific year;
-                    5 - Search artist data
+                    4 - List all living authors in a specific year;
+                    5 - List all books in a specific language;
                     6 - Register album
                     9 - Exit
                     """;
@@ -52,10 +58,9 @@ public class Menu {
                     int year = UserInputs.getIntegerFromUser("Please inform the year: ");
                     authorService.findLivingsInPeriodAndPrint(year);
                     break;
-//                case 5:
-//                    System.out.println("Please inform the artist name to search: ");
-//                    ChatGPTSearch.searchArtistOnline(keyboard.nextLine());
-//                    break;
+                case 5:
+                    bookService.chooseLanguageAndPrint();
+                    break;
 //                case 6:
 //                    albumService.registerAlbum();
 //                    break;
