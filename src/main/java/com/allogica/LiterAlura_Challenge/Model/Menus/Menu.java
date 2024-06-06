@@ -1,5 +1,6 @@
 package com.allogica.LiterAlura_Challenge.Model.Menus;
 
+import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.AuthorService;
 import com.allogica.LiterAlura_Challenge.Model.Services.EntityService.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,13 +16,16 @@ public class Menu {
     private BookService bookService;
 //    RequestValidationAndDataReturn requestValidationAndDataReturn = new RequestValidationAndDataReturn();
 
+    @Autowired
+    private AuthorService authorService;
+
     public void showMenu() {
         var option = -1;
         while (option != 0) {
             var menu = """
                     1 - Search book;
                     2 - List all books;
-                    3 - List musics
+                    3 - List all authors;
                     4 - Find musics by artist
                     5 - Search artist data
                     6 - Register album
@@ -40,9 +44,9 @@ public class Menu {
                 case 2:
                     bookService.findAllAndPrint();
                     break;
-//                case 3:
-//                    CustomPrinter.printMusicList(musicService.listMusics());
-//                    break;
+                case 3:
+                    authorService.findAllAndPrint();
+                    break;
 //                case 4:
 //                    CustomPrinter.printMusicList(musicService.listMusicsByArtistFragmentName());
 //                    break;

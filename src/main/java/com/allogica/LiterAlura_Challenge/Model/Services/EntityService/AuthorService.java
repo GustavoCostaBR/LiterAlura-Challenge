@@ -5,6 +5,7 @@ import com.allogica.LiterAlura_Challenge.Model.Entities.AuthorDTO;
 import com.allogica.LiterAlura_Challenge.Model.Entities.Book;
 import com.allogica.LiterAlura_Challenge.Model.Entities.BookDTO;
 import com.allogica.LiterAlura_Challenge.Model.Repositories.AuthorRepository;
+import com.allogica.LiterAlura_Challenge.Model.Utilities.CustomPrinter;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,10 @@ public class AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
-//    private List<Author> authors;
-
-//    public List<Author> getAuthors() {
-//        return authors;
-//    }
+    @Transactional
+    public void findAllAndPrint() {
+        CustomPrinter.printAuthors(authorRepository.findAll());
+    }
 
     @Transactional
     public Book addAuthorToBook(Book book, BookDTO bookDTO) {
