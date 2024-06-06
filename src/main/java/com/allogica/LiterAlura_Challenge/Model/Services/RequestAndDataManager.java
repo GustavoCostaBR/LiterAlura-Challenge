@@ -2,16 +2,16 @@ package com.allogica.LiterAlura_Challenge.Model.Services;
 
 import com.allogica.LiterAlura_Challenge.Model.Entities.BookDTO;
 import com.allogica.LiterAlura_Challenge.Model.Services.DataConversion.BooksConversion;
-import com.allogica.LiterAlura_Challenge.Model.Services.DataConversion.DataConversion;
 import com.allogica.LiterAlura_Challenge.Model.Utilities.UserInputs;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Scanner;
 
-@Service
-public class RequestValidationAndDataReturn {
+@Component
+public class RequestAndDataManager {
     @Autowired
     private RequestPreparation requestPreparation;
 
@@ -36,11 +36,7 @@ public class RequestValidationAndDataReturn {
 
     public List<BookDTO> search() {
         String bookInformation = getUserInput();
-        List<BookDTO> books = getBooksList(bookInformation);
-
-        return books;
-//        TODO: refactor the return to one line after debugging
-        //        return getBooksList(bookInformation);
+        return getBooksList(bookInformation);
     }
 
     private String getUserInput() {

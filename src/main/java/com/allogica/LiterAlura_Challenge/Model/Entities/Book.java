@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "books")
+@Table(name = "books", uniqueConstraints = @UniqueConstraint(columnNames = {"title", "address"}))
 public class Book {
 
 
@@ -32,6 +32,9 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
     private List<Author> authors;
+
+//    @Lob
+    @Column(columnDefinition = "TEXT")
     private String title;
 
 
@@ -52,6 +55,8 @@ public class Book {
     )
     private List<BookLanguage> languages;
 
+//    @Lob
+    @Column(columnDefinition = "TEXT")
     private String address;
 
     public Book() {

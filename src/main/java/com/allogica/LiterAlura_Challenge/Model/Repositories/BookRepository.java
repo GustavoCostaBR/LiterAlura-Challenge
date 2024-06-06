@@ -4,5 +4,5 @@ import com.allogica.LiterAlura_Challenge.Model.Entities.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
-
+    boolean existsByTitleAndAddress(String title, String address);
 }
