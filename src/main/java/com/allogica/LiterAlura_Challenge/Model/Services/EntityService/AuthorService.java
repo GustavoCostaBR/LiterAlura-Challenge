@@ -20,6 +20,12 @@ public class AuthorService {
     private AuthorRepository authorRepository;
 
     @Transactional
+    public void findByNameContaingAndPrint(String name) {
+        List<Author> authors = authorRepository.findByNameContaining(name);
+        CustomPrinter.printAuthors(authors);
+    }
+
+    @Transactional
     public void findAllAndPrint() {
         CustomPrinter.printAuthors(authorRepository.findAll());
     }
@@ -66,4 +72,6 @@ public class AuthorService {
         author.setYearOfDeath(authorDTO.deathYear());
         return authorRepository.save(author);
     }
+
+
 }

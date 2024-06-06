@@ -16,15 +16,9 @@ public class Menu {
 
     @Autowired
     private BookService bookService;
-//    RequestValidationAndDataReturn requestValidationAndDataReturn = new RequestValidationAndDataReturn();
 
     @Autowired
     private AuthorService authorService;
-
-//    TODO: remove if not necessary for method 5
-    @Autowired
-    private BookLanguageService bookLanguageService;
-//    TODO: remove if not necessary for method 5
 
     public void showMenu() {
         var option = -1;
@@ -35,7 +29,7 @@ public class Menu {
                     3 - List all authors;
                     4 - List all living authors in a specific year;
                     5 - List all books in a specific language;
-                    6 - Register album
+                    6 - List author by name;
                     9 - Exit
                     """;
 
@@ -61,9 +55,10 @@ public class Menu {
                 case 5:
                     bookService.chooseLanguageAndPrint();
                     break;
-//                case 6:
-//                    albumService.registerAlbum();
-//                    break;
+                case 6:
+                    String name = UserInputs.getStringFromUser("Please inform the author name: ");
+                    authorService.findByNameContaingAndPrint(name);
+                    break;
 
                 case 9:
                     System.out.println("Exiting...");

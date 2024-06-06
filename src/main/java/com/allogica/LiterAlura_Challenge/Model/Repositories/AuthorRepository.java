@@ -11,4 +11,5 @@ public interface AuthorRepository extends JpaRepository<Author, Long>{
     boolean existsByName(String name);
     List<Author> findByYearOfBirthLessThanAndYearOfDeathGreaterThanOrYearOfDeathIsNull(int year, int year2);
 
+    List<Author> findByNameContaining(String name);
 }
